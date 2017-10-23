@@ -12,6 +12,7 @@ const server = restify.createServer();
 
 server.get('/', (req, res, next) => {
     res.send({message: "hello IJS"});
+    next();
 });
 
 module.exports = {
