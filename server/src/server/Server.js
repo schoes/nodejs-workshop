@@ -32,6 +32,18 @@ server.use(security);
 //socket
 const wss = new webSocket.Server({server});
 //TODO
+wss.on('connection', (ws) => {
+    eventEmitter.addListener('newData', (data) => {
+        console.log('got new data');
+        (ws.send(JSON.stringify(data)));
+    });
+    ws.on('close', () => {
+        eventEmitter.removeListener('newData', () => {
+            console.log('remove');
+        });
+    });
+});
+
 // - listen to 'connection' - event of wss
 // - listen to eventEmitters 'newData' event (eventEmitters.addListener('event',handler))
 // - push the data to the client when the newData-Event is fired (ws.send(JSON.stringify(data))) <-- JSON.stringify is important here ;)
@@ -44,10 +56,10 @@ module.exports = {
             console.log('server up');
         })
     },
-    register(resource){
+    register(resource) {
         resource(server);
     },
-    getServer(){
+    getServer() {
         return server;
     }
 };
