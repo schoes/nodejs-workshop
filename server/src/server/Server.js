@@ -18,6 +18,7 @@ server.pre(cors.preflight);
 //middlewares use plugins
 server.use(cors.actual);
 server.use(restify.plugins.queryParser());
+server.use(restify.plugins.bodyParser());
 //TODO add the bodyParser() middleware
 
 
@@ -27,10 +28,10 @@ module.exports = {
             console.log('server up');
         })
     },
-    register(resource){
+    register(resource) {
         resource(server);
     },
-    getServer(){
+    getServer() {
         return server;
     }
 };
