@@ -17,6 +17,7 @@ const server = restify.createServer();
 server.pre(cors.preflight);
 //middlewares use plugins
 server.use(cors.actual);
+server.use(restify.plugins.queryParser());
 //TODO add queryParser middleware
 
 
@@ -26,10 +27,10 @@ module.exports = {
             console.log('server up');
         })
     },
-    register(resource){
+    register(resource) {
         resource(server);
     },
-    getServer(){
+    getServer() {
         return server;
     }
 };
