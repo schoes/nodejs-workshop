@@ -23,7 +23,7 @@ module.exports = server => {
         //TODO
         // parsing + default param handling can be removed after validation is added. The validation middleware will do all of that for you (just use req.query.page and req.query.size).
         const page = req.query.page ? parseInt(req.query.page, 10) : 1;
-        const size = req.query.size ? parseInt(req.query.size, 10) : 10;
+        const size = req.query.size ? parseInt(req.query.size, 10) : tweetService.countTweets();
         const start = (page - 1) * size;
         const allTweets = tweetService.getTweets(start, size);
         res.send(allTweets);
