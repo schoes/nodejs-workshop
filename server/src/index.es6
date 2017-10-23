@@ -3,10 +3,8 @@
  */
 
 const server = require('./server/Server.es6');
-
-//TODO
-// - require TweetsResource
-// - register the TweetsResource (server.register)
+const tweetRessource = require('./tweets/TweetsResource.es6');
+server.register(tweetRessource);
 
 server.start();
 

@@ -13,6 +13,9 @@ const cors = corsMiddleware({
 
 const server = restify.createServer();
 
+server.pre(cors.preflight);
+server.use(cors.actual);
+
 //TODO
 //- use the cors-middleware to enable cors
 //- check the slides or (https://www.npmjs.com/package/restify-cors-middleware) for usage info :)
@@ -23,10 +26,10 @@ module.exports = {
             console.log('server up');
         })
     },
-    register(resource){
+    register(resource) {
         resource(server);
     },
-    getServer(){
+    getServer() {
         return server;
     }
 };
