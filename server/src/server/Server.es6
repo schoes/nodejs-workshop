@@ -20,10 +20,6 @@ module.exports = {
         server.listen(3001, () => {
             console.log('server is running');
         });
-        //TODO
-        //start the server here (server.listen(port,callback))
-        //port should be 3001
-        //server will be listening at http://localhost:3001 when started.
     },
     register(resource) {
         resource(server);
