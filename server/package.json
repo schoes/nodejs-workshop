@@ -11,7 +11,7 @@
   },
   "scripts": {
     "lint": "eslint src",
-    "start": "nodemon ./src/index.js",
+    "start": "nodemon ./src/index.es6",
     "test": "jest",
     "test-coverage": "jest --coverage"
   },

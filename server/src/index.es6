@@ -2,7 +2,7 @@
  * @author Sven Koelpin
  */
 
-const server = require('./server/Server');
+const server = require('./server/Server.es6');
 
 //TODO
 // - require TweetsResource
